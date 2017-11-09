@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\model\ZbrankCollectStatusModel;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
     //
     public function index(){
-        print 222222;
+        $test = ZbrankCollectStatusModel::first()->toArray();
+        var_dump($test);
     }
 }

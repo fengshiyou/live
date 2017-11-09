@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST'.env("APP_ENV"), '127.0.0.1'),
-            'port' => env('DB_PORT'.env("APP_ENV"), '3306'),
-            'database' => env('DB_DATABASE'.env("APP_ENV"), 'forge'),
-            'username' => env('DB_USERNAME'.env("APP_ENV"), 'forge'),
-            'password' => env('DB_PASSWORD'.env("APP_ENV"), ''),
+            'host' => env('DB_HOST_'.env("APP_ENV"), '127.0.0.1'),
+            'port' => env('DB_PORT_'.env("APP_ENV"), '3306'),
+            'database' => env('DB_DATABASE_'.env("APP_ENV"), 'forge'),
+            'username' => env('DB_USERNAME_'.env("APP_ENV"), 'forge'),
+            'password' => env('DB_PASSWORD_'.env("APP_ENV"), ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
