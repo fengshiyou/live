@@ -8,6 +8,6 @@ class TestController extends Controller
 {
     //
     public function index(){
-        print 1;
+        print 2;
     }
 }
