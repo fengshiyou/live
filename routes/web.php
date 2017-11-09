@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/gitHubHook','GithubHookController@index');
+Route::get('/test','TestController@index');
