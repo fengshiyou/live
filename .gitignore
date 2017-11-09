@@ -12,3 +12,4 @@ yarn-error.log
 .env
 doc/
 composer.lock
+.env.example
