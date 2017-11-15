@@ -113,7 +113,7 @@
                     <img :src="value.avatar" width="28px" height="28px">
                     <span>@{{value.username}}</span>
                 </td>
-                <td>@{{value.platform}}</td>
+                <td>@{{value.platname}}</td>
                 <td>@{{Math.ceil(value.rmb_week/10000)}}万</td>
                 <td>@{{Math.ceil(value.fans_max/10000)}}万</td>
                 <td>@{{Math.ceil(value.onlineCount_max/10000)}}万</td>
