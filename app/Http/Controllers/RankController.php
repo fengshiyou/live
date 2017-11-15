@@ -40,7 +40,7 @@ class RankController extends Controller
             ->rankQuery($plat, $liver);
         //优化sql  如果没传 关键字  就限定查找范围 @todo 重要
         if (!$plat){
-            $rank_list = $rank_list->where("rank_all",">",1)->where("rank_all","<=",500);
+            $rank_list = $rank_list->where("rank_all",">",1)->where("rank_all","<=",$per_page);
         }
         $rank_list = $rank_list->orderBy('rank_all', "asc")
             ->skip($per_page * $page_no)
@@ -54,8 +54,8 @@ class RankController extends Controller
             'active_plat' => $plat
         );
 
-        $log = DB::getQueryLog();
-        var_dump($log);
+//        $log = DB::getQueryLog();
+//        var_dump($log);
         return response()->json($return_data, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
