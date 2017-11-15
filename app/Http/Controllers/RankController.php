@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\model\ZbrankCollectStatusModel;
 use App\model\zbrankRank;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class RankController extends Controller
 {
@@ -34,10 +34,11 @@ class RankController extends Controller
             //往前挪几天
             $date = date("Ymd", strtotime("-" . ($now_week - 1 + 7) . 'days'));
         }
-
+        DB::connection()->enableQueryLog();
         $rank_model = new zbrankRank($date);
         $rank_list = $rank_model
             ->rankQuery($plat, $liver)
+            ->where("rank_all","<=",$per_page)
             ->orderBy('rank_all', "asc")
             ->skip($per_page * $page_no)
             ->limit($per_page)
@@ -49,6 +50,9 @@ class RankController extends Controller
             'active_liver' => $liver,
             'active_plat' => $plat
         );
+
+        $log = DB::getQueryLog();
+        dd($log);
         return response()->json($return_data, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
