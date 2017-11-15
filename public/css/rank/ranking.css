@@ -1,0 +1,286 @@
+.rank-head {
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.rank-head-in {
+    width: 1040px;
+    height: 52px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.rank-head-in a {
+    display: inline-block;
+    padding-top: 18px;
+    padding-bottom: 14px;
+    margin-right: 30px;
+    color: #666;
+}
+
+.rank-head-in a:hover {
+    color: rgb(242, 0, 76);
+    border-bottom: 2px solid rgb(242, 0, 76);
+}
+
+.rank-active {
+    color: rgb(242, 0, 76) !important;
+    border-bottom: 2px solid rgb(242, 0, 76);
+}
+
+.rank-plat {
+    width: 1040px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.rank-plat ul {
+    margin-top: 2px;
+}
+
+.rank-plat ul li {
+    float: left;
+    display: block;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    color: #999;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.plat_active {
+    color: #fff !important;
+    border: 1px solid rgb(242, 0, 76) !important;
+    background: rgb(242, 0, 76) !important;
+}
+
+.rank-weekly {
+    width: 1040px;
+    padding-top: 15px;
+}
+
+.rank-main {
+    width: 1040px;
+}
+
+.rank-main table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #E6E6E6;
+}
+
+.rank-main tr {
+    height: 39px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.rank-main th {
+    padding: 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: #555;
+}
+
+.table-user {
+    text-align: left;
+    cursor: pointer;
+}
+
+.table-user img {
+    border-radius: 50%;
+    display: table;
+    vertical-align: center;
+    margin-right: 10px;
+    margin-left: 30px;
+    margin-top: 5px;
+    float: left;
+}
+
+.table-user span {
+    display: table-cell;
+    float: left;
+    width: 180px;
+    height: 39px;
+    line-height: 39px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.date_down{
+    width: 20px;
+    display: inline-block;
+    height: 18px;
+    /*background: url() no-repeat 10px 11px;*/
+}
+
+.date_up{
+    width: 20px;
+    height: 18px;
+    display: inline-block;
+    /*background: url() no-repeat 10px 11px;*/
+}
+.date_line{
+    width: 1200px;
+    /* border-bottom: 1px solid #ddd; */
+    margin-bottom: 20px;
+    display: none;
+}
+.show_date{
+    height: inherit;
+    width: 1040px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.show_date div{
+    width: 140px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+/*.show_date a:hover{
+    color: #fff !important;
+    border: 1px solid rgb(226, 27, 74) !important;
+    background: rgb(226, 27, 74) !important;
+}*/
+.date_sty{
+    border: 1px solid #ddd;
+    color: #999;
+}
+.rank-btn{
+    width: 1200px;
+    height: 240px;
+    position: relative;
+}
+#dev_50_counts,#dev_100_counts,#dev_all_counts,.size_button{
+    width: 88px;
+    height: 28px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    color: #999;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+}
+
+#dev_50_counts:hover,#dev_100_counts:hover,#dev_all_counts:hover{
+    color: rgb(242, 0, 76);
+    border: 1px solid rgb(242, 0, 76);
+}
+.btn_active{
+    color: rgb(242, 0, 76) !important;
+    border: 1px solid rgb(242, 0, 76) !important;
+}
+#dev_50_counts{
+    position: absolute;
+    top: 80px;
+    left: 445px;
+}
+#dev_100_counts{
+    position: absolute;
+    top: 80px;
+    left: 555px;
+}
+#dev_all_counts{
+    position: absolute;
+    top: 80px;
+    left: 665px;
+}
+.backToTop{
+    position: fixed;
+    right: 60px;
+    bottom: 20px;
+    display: none;
+}
+.backToTop-bt{
+    position: absolute;
+    right: 80px;
+    bottom: 30px;
+}
+.fixedBtn{
+    position: absolute;
+    top: 175px;
+    right: 60px;
+}
+
+
+/*
+数据说明
+*/
+.explain{
+    width: 1000px;
+    height: 144px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+.explain img{
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+.explain>span{
+    position: absolute;
+    top: 97px;
+    left: 0;
+    color: #7A7A7A;
+}
+.explain-words{
+    position: absolute;
+    display: table;
+    left: 200px;
+    top: 0;
+    width: 800px;
+    height: 144px;
+}
+.explain-words>p{
+    display: table-cell;
+    vertical-align: middle;
+    color: #7A7A7A;
+    line-height: 23px;
+}
+.explain-tips{
+    width: 1000px;
+    height: 166px;
+    position: relative;
+}
+.explain-tips>span{
+    position: absolute;
+    top: 33px;
+    left: 195px;
+    color: #cfcfcf;
+}
+/*表头悬浮*/
+#table-head{
+    width: 1040px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: rgb(242, 0, 76);
+    display: none;
+}
+#table-head table{
+    width: 1040px;
+}
+#table-head th{
+    padding: 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    height: 39px;
+}
