@@ -34,12 +34,15 @@ class RankController extends Controller
             //往前挪几天
             $date = date("Ymd", strtotime("-" . ($now_week - 1 + 7) . 'days'));
         }
-        DB::connection()->enableQueryLog();
+//        DB::connection()->enableQueryLog();
         $rank_model = new zbrankRank($date);
         $rank_list = $rank_model
-            ->rankQuery($plat, $liver)
-            ->where("rank_all","<=",$per_page)
-            ->orderBy('rank_all', "asc")
+            ->rankQuery($plat, $liver);
+        //优化sql  如果没传 关键字  就限定查找范围 @todo 重要
+        if (!$plat){
+            $rank_list = $rank_list->where("rank_all",">",1)->where("rank_all","<=",500);
+        }
+        $rank_list = $rank_list->orderBy('rank_all', "asc")
             ->skip($per_page * $page_no)
             ->limit($per_page)
             ->get()
@@ -52,7 +55,7 @@ class RankController extends Controller
         );
 
         $log = DB::getQueryLog();
-        dd($log);
+        var_dump($log);
         return response()->json($return_data, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
