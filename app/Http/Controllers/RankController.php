@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\model\ZbrankCollectStatusModel;
+use App\model\zbrankPlatModel;
 use App\model\zbrankRank;
 use Illuminate\Http\Request;
 use DB;
@@ -94,8 +95,7 @@ class RankController extends Controller
      * 获取平台列表
      */
     public function getPlatList(){
-        $date = array();
-        $date = ZbrankCollectStatusModel::select('zbrank_plat_id','zbrank_plat_name')->distinct('zbrank_plat_id')->get()->toArray();
+        $date = zbrankPlatModel::get()->toArray();
         return response()->json($date, 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

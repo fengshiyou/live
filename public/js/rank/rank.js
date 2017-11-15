@@ -39,7 +39,7 @@ $(function () {
                     this.plat_list[i]['active'] = false;
                 }
                 this.plat_list[key]['active'] = true;
-                this.active_plat = this.plat_list[key]['zbrank_plat_id'];
+                this.active_plat = this.plat_list[key]['plat_id'];
                 getRankList(this.active_date, this.active_plat ,this.active_page);
             },
             pageSelect: function (key) {
@@ -90,7 +90,7 @@ $(function () {
             type: "GET",
             dataType: 'json',
             success: function (data) {
-                var tmp = {zbrank_plat_id: '', zbrank_plat_name: "全部"};
+                var tmp = {plat_id: '',plat_name: "全部"};
                 data.unshift(tmp);
                 for (var i = 0; i < data.length; i++) {
                     if (i == 0) {

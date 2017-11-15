@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>领先的直播影响力大数据|主播排行榜|直播排行榜</title>
     <meta content="seo优化 关键字" name="keywords">
-    <script type="text/javascript" src="{{URL::asset('/js/jquery-3.2.1.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('/js/vue.js')}}"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" src="{{URL::asset('/js/rank/rank.js')}}"></script>
 
     <link rel="stylesheet" href="{{URL::asset('/css/rank/style.css')}}">
@@ -59,7 +59,7 @@
             <div style="float: left;width: 50px;color: #888;">平台</div>
             <div style="float: left;width: 990px;">
                 <ul id="plats">
-                    <li @click="platSelect(key)" :class="{plat_active:value.active}" v-for="(value,key) in plat_list" :id="value.zbrank_plat_id" >@{{ value.zbrank_plat_name }}</li>
+                    <li @click="platSelect(key)" :class="{plat_active:value.active}" v-for="(value,key) in plat_list" :id="value.plat_id" >@{{ value.plat_name }}</li>
                 </ul>
             </div>
             <div class="cl"></div>
@@ -110,6 +110,7 @@
             <tr v-for="(value,index) in myData">
                 <td>NO.@{{index+1}}</td>
                 <td class="table-user"  title="旭旭宝宝">
+                    {{--<img src="">--}}
                     <img :src="value.avatar" width="28px" height="28px">
                     <span>@{{value.username}}</span>
                 </td>
