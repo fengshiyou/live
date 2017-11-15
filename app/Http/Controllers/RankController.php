@@ -34,7 +34,7 @@ class RankController extends Controller
             //往前挪几天
             $date = date("Ymd", strtotime("-" . ($now_week - 1 + 7) . 'days'));
         }
-        DB::connection()->enableQueryLog();
+//        DB::connection()->enableQueryLog();
         $rank_model = new zbrankRank($date);
         $rank_list = $rank_model
             ->rankQuery($plat, $liver)
@@ -51,8 +51,8 @@ class RankController extends Controller
             'active_plat' => $plat
         );
 
-        $log = DB::getQueryLog();
-        dd($log);
+//        $log = DB::getQueryLog();
+//        dd($log);
         return response()->json($return_data, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
