@@ -73,7 +73,16 @@
             </div>
         </div>
     </div>
-    {{--@tood--}}
+    <div id="loading_shade" v-show="loading_shade">
+        <div class="layui-layer-shade" id="layui-layer-shade7" times="7" style="z-index:19891020; background-color:#eee; opacity:0.5; filter:alpha(opacity=50);">
+
+        </div>
+        <div class="layui-layer layui-anim layui-layer-loading " id="layui-layer8" type="loading" times="8" showtime="0" contype="string" style="z-index: 19891022; top: 50%; left: 50%;">
+            <div class="layui-layer-content layui-layer-loading3">
+
+            </div>
+        </div>
+    </div>
     <div id="table-head" class="center" style="">
         <table>
             <thead>
@@ -158,6 +167,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>

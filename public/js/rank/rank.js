@@ -7,6 +7,7 @@ $(function () {
             active_plat: '',
             active_liver: '',
             active_page: 20,
+            loading_shade:false,
             near_7date: [
                 {id: '20171106', date: '11月6日-11月12日', active: true},
                 {id: '20171030', date: '10月30日-11月5日', active: true},
@@ -61,6 +62,7 @@ $(function () {
     getPlatList();
 
     function getRankList(date, plat ,per_page) {
+        rank_vue.loading_shade = true;
         $.ajax({
             url: '/getRankList',
             type: "GET",
@@ -68,6 +70,7 @@ $(function () {
             dataType: 'json',
             success: function (data) {
                 rank_vue.myData = data.rank_list;
+                rank_vue.loading_shade = false;
             }
         })
     };
