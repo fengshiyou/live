@@ -69,7 +69,7 @@
 
         <div class="date_line cl center" style="display: block;">
             <div class="show_date center" style="overflow: auto">
-                <div @click="dateSelect(key)" :class="{date_sty:true,plat_active:value.active}" v-for="(value,key) in near_7date" :id="value.id">@{{ value.date }}</div>
+                <div @click="dateSelect(key)" style="cursor:pointer" :class="{date_sty:true,plat_active:value.active}" v-for="(value,key) in near_7date" :id="value.id">@{{ value.date }}</div>
             </div>
         </div>
     </div>
