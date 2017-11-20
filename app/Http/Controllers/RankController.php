@@ -60,9 +60,9 @@ class RankController extends Controller
             'rank_list' => $rank_list,
             'active_date'=>$date,
             'active_liver' => $liver,
-            'active_plat' => $plat,
-            'sql1'=>$log1,
-            'sql2'=>$log2,
+            'active_plat' => $plat
+//            'sql1'=>$log1,
+//            'sql2'=>$log2,
         );
 
 
