@@ -13,19 +13,19 @@ class zbrankRank extends Model
      * zbrankRank constructor.
      * @param array $date 20170918,20170912,20170916
      */
-    public function __construct($date = '')
-    {
-        if ($date) {
-            self::$date = $date;
-            $this->table = $this->table . self::$date;
-        }
-        parent::__construct();
-    }
+//    public function __construct($date = '')
+//    {
+//        if ($date) {
+//            self::$date = $date;
+//            $this->table = $this->table . self::$date;
+//        }
+//        parent::__construct();
+//    }
 
     /**
      *
      */
-    public function rankQuery($plat = '', $liver = '')
+    public function rankQuery($date , $plat = '', $liver = '')
     {
         $date_array = explode(',', self::$date);
         $base_rank_model = new zbrankRank($date_array[0]);
@@ -48,5 +48,18 @@ class zbrankRank extends Model
             }
         }
         return $base_rank_model;
+    }
+
+    public function scopeRankQuery($query, $date , $plat = '', $liver = '')
+    {
+        $date_array = explode(',', $date);
+        $query = $query->where('rank_start_timestamp','=',$date_array[0]);
+        if ($plat) {
+            $query = $query->where('platform', '=', $plat);
+        }
+        if ($liver) {
+            $query = $query->where('userId', '=', $liver);
+        }
+        return $query;
     }
 }

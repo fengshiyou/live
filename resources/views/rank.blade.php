@@ -9,7 +9,7 @@
     <script type="text/javascript" src="{{URL::asset('/js/rank/rank.js')}}"></script>
 
     <link rel="stylesheet" href="{{URL::asset('/css/rank/style.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/rank/layer.css')}}" >
+    <link rel="stylesheet" href="{{URL::asset('/css/rank/layer.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/rank/layer.ext.css')}}">
     <link rel="stylesheet" href="{{URL::asset('/css/rank/ranking.css')}}">
 
@@ -18,7 +18,7 @@
 <header>
     <div class="header center">
         <div class="showLogo fl logo1" id="indexLogo"></div>
-        <div class="in_nav fr" >
+        <div class="in_nav fr">
             <ul>
                 <li>
                     <a href="" id="index">首页</a>
@@ -47,19 +47,21 @@
 <div id="rank">
     <div class="rank-head center">
         <div class="rank-head-in center">
-          {{--  <a href="" id="affect" class="rank-active">总榜</a>
-            <a href="" id="shows">秀场</a>
-            <a href="" id="game">游戏</a>
-            <a href="" id="entertainments">泛娱乐</a>
-            <a href="" id="sports">体育</a>
-            <a href="" id="ecommerce">电商</a>--}}
+            {{--  <a href="" id="affect" class="rank-active">总榜</a>
+              <a href="" id="shows">秀场</a>
+              <a href="" id="game">游戏</a>
+              <a href="" id="entertainments">泛娱乐</a>
+              <a href="" id="sports">体育</a>
+              <a href="" id="ecommerce">电商</a>--}}
             <a class="fr" style="color: #b4b4b4" href="http://www.zbrank.com/ranking/explain" target="_blank">数据说明</a>
         </div>
         <div class="rank-plat center">
             <div style="float: left;width: 50px;color: #888;">平台</div>
             <div style="float: left;width: 990px;">
                 <ul id="plats">
-                    <li @click="platSelect(key)" :class="{plat_active:value.active}" v-for="(value,key) in plat_list" :id="value.plat_id" >@{{ value.plat_name }}</li>
+                    <li @click="platSelect(key)" :class="{plat_active:value.active}" v-for="(value,key) in plat_list"
+                        :id="value.plat_id">@{{ value.plat_name }}
+                    </li>
                 </ul>
             </div>
             <div class="cl"></div>
@@ -69,15 +71,19 @@
 
         <div class="date_line cl center" style="display: block;">
             <div class="show_date center" style="overflow: auto">
-                <div @click="dateSelect(key)" style="cursor:pointer" :class="{date_sty:true,plat_active:value.active}" v-for="(value,key) in near_7date" :id="value.id">@{{ value.date }}</div>
+                <div @click="dateSelect(key)" style="cursor:pointer" :class="{date_sty:true,plat_active:value.active}"
+                     v-for="(value,key) in near_7date" :id="value.id">@{{ value.date }}
+                </div>
             </div>
         </div>
     </div>
     <div id="loading_shade" v-show="loading_shade">
-        <div class="layui-layer-shade" id="layui-layer-shade7" times="7" style="z-index:19891020; background-color:#eee; opacity:0.5; filter:alpha(opacity=50);">
+        <div class="layui-layer-shade" id="layui-layer-shade7" times="7"
+             style="z-index:19891020; background-color:#eee; opacity:0.5; filter:alpha(opacity=50);">
 
         </div>
-        <div class="layui-layer layui-anim layui-layer-loading " id="layui-layer8" type="loading" times="8" showtime="0" contype="string" style="z-index: 19891022; top: 50%; left: 50%;">
+        <div class="layui-layer layui-anim layui-layer-loading " id="layui-layer8" type="loading" times="8" showtime="0"
+             contype="string" style="z-index: 19891022; top: 50%; left: 50%;">
             <div class="layui-layer-content layui-layer-loading3">
 
             </div>
@@ -117,11 +123,18 @@
             </thead>
             <tbody id="dev_tbody">
             <tr v-for="(value,index) in myData">
-                <td>NO.@{{index+1}}</td>
-                <td class="table-user"  title="旭旭宝宝">
+                <td>
+                    <span>NO.@{{index+1}}</span>
+                </td>
+                <td class="table-user">
                     {{--<img src="">--}}
                     <img :src="value.avatar" width="28px" height="28px">
-                    <span>@{{value.username}}</span>
+                    <span :title="value.username">@{{value.username}}</span>
+                    <div title="进入直播间" @click="liverAddr(value.userId)" id="playBtn" class="square" style="margin: 10px">
+                        <div class="square_inner_play">
+                        </div>
+                    </div>
+
                 </td>
                 <td>@{{value.platname}}</td>
                 <td>@{{Math.ceil(value.rmb_week/10000)}}万</td>
@@ -136,7 +149,8 @@
         <div id="table-btn"></div>
     </div>
     <div class="rank-btn center">
-        <button :class="{btn_active:value.active}" @click="pageSelect(key)" v-for="(value,key) in page_size" :id="value.id">
+        <button :class="{btn_active:value.active}" @click="pageSelect(key)" v-for="(value,key) in page_size"
+                :id="value.id">
             显示@{{ value.name }}条
         </button>
         <div class="backToTop" id="toTop">

@@ -284,3 +284,106 @@
     color: #fff;
     height: 39px;
 }
+.circle {
+    display:inline;
+    border: solid 1px #23527C;
+    border-radius: 15px;
+    height: 15px;
+    position: absolute;
+    width: 15px;
+}
+
+.circle:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    border: solid 1px #07b90e;
+}
+
+
+.circle_inner_play {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 10px;
+    border-color: transparent transparent transparent #23527C;
+    position: absolute;
+    top: 82%;
+    left: 68%;
+    margin: -10px 0 0 -7px;
+}
+.circle:hover > .circle_inner_play {
+    border-color: transparent transparent transparent #07b90e;
+}
+.circle_inner_pause {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -10px;
+    color: #23527C;
+}
+
+.circle_inner_reset {
+    width: 18px;
+    height: 18px;
+    background-color: #23527C;
+    margin: -9px 0 0 -9px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.square {
+    display:inline;
+    border: solid 1px #23527C;
+    border-radius: 15px;
+    height: 15px;
+    position: absolute;
+    width: 30px;
+}
+
+.square:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    border: solid 1px #07b90e;
+}
+
+
+.square_inner_play {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 10px;
+    border-color: transparent transparent transparent #23527C;
+    position: absolute;
+    top: 82%;
+    left: 68%;
+    margin: -10px 0 0 -8px;
+}
+.square:hover > .square_inner_play {
+    border-color: transparent transparent transparent #07b90e;
+}
+.square_inner_pause {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -10px;
+    color: #23527C;
+}
+
+.square_inner_reset {
+    width: 18px;
+    height: 18px;
+    background-color: #23527C;
+    margin: -9px 0 0 -9px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

@@ -10,9 +10,9 @@ class TestController extends Controller
 {
     //
     public function index(){
-        $d= "20170918";
-        $rank_model = new zbrankRank($d);
-        $test = $rank_model->rankQuery('meme');
+        $d= "1508688000";
+        $rank_model = new zbrankRank();
+        $test = $rank_model->rankByDate($d);
         dd($test->orderBy('id','desc')->limit(100)->get()->toArray());
     }
 }

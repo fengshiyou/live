@@ -51,6 +51,21 @@ $(function () {
                 this.page_size[key]['active'] = true;
                 this.active_page = this.page_size[key]['value'];
                 getRankList(this.active_date, this.active_plat ,this.active_page);
+            },
+            liverAddr:function (user_id) {
+                $.ajax({
+                    url: '/getLiveAddr',
+                    type: "GET",
+                    data: {user_id: user_id},
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.code == 200){
+                            window.open(data.data.liverAddr)
+                        }else{
+                            alert("暂无数据");
+                        }
+                    }
+                })
             }
         }
     });
@@ -69,7 +84,7 @@ $(function () {
             data: {date: date, plat: plat,per_page:per_page},
             dataType: 'json',
             success: function (data) {
-                rank_vue.myData = data.rank_list;
+                rank_vue.myData = data.data.rank_list;
                 rank_vue.loading_shade = false;
             }
         })
@@ -82,7 +97,7 @@ $(function () {
             data: {num: 6},
             dataType: 'json',
             success: function (data) {
-                rank_vue.near_7date = data;
+                rank_vue.near_7date = data.data;
             }
         })
     };
@@ -94,6 +109,7 @@ $(function () {
             dataType: 'json',
             success: function (data) {
                 var tmp = {plat_id: '',plat_name: "全部"};
+                var data = data.data
                 data.unshift(tmp);
                 for (var i = 0; i < data.length; i++) {
                     if (i == 0) {
