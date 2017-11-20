@@ -30,6 +30,7 @@ class RankController extends Controller
         $liver = request('liver');
         //要查询的平台
         $plat = request('plat');
+        DB::connection()->enableQueryLog();
         if (!$date) {
             //获取今天是周几
             // $now_week = date('w');
@@ -37,6 +38,7 @@ class RankController extends Controller
             //$date =  strtotime("-" . ($now_week - 1 + 7) . 'days');
             //取数据库中最大的日期
             $date = zbrankRankModel::max('rank_start_timestamp');
+            $log1 = DB::getQueryLog();
         }
 //        dd($date);
 
@@ -46,7 +48,6 @@ class RankController extends Controller
         }else{//优化sql  如果没传 关键字  就限定查找范围
             $rank_list = $rank_list->where("rank_all",">",1)->where("rank_all","<=",$per_page);
         }
-        DB::connection()->enableQueryLog();
         $rank_list = $rank_list->orderBy('rank_all', "asc")
             ->skip($per_page * $page_no)
             ->limit($per_page)
@@ -54,13 +55,14 @@ class RankController extends Controller
             ->toArray();
 
 
-        $log = DB::getQueryLog();
+        $log2 = DB::getQueryLog();
         $return_data = array(
             'rank_list' => $rank_list,
             'active_date'=>$date,
             'active_liver' => $liver,
             'active_plat' => $plat,
-            'sql'=>$log
+            'sql1'=>$log1,
+            'sql2'=>$log2,
         );
 
 
