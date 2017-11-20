@@ -46,7 +46,7 @@ class RankController extends Controller
         }else{//优化sql  如果没传 关键字  就限定查找范围
             $rank_list = $rank_list->where("rank_all",">",1)->where("rank_all","<=",$per_page);
         }
-//        DB::connection()->enableQueryLog();
+        DB::connection()->enableQueryLog();
         $rank_list = $rank_list->orderBy('rank_all', "asc")
             ->skip($per_page * $page_no)
             ->limit($per_page)
@@ -54,15 +54,16 @@ class RankController extends Controller
             ->toArray();
 
 
-
+        $log = DB::getQueryLog();
         $return_data = array(
             'rank_list' => $rank_list,
             'active_date'=>$date,
             'active_liver' => $liver,
-            'active_plat' => $plat
+            'active_plat' => $plat,
+            'sql'=>$log
         );
 
-//        $log = DB::getQueryLog();
+
 //        var_dump($log);
         return resp_suc($return_data);
     }
