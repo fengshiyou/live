@@ -130,10 +130,10 @@
                     {{--<img src="">--}}
                     <img :src="value.avatar" width="28px" height="28px">
                     <span :title="value.username">@{{value.username}}</span>
-                    <div title="进入直播间" @click="liverAddr(value.userId)" id="playBtn" class="square" style="margin: 10px">
+                    <a :href="value.liverAddr"  target="_blank" title="进入直播间" id="playBtn" class="square" style="margin: 10px">
                         <div class="square_inner_play">
                         </div>
-                    </div>
+                    </a>
 
                 </td>
                 <td>@{{value.platname}}</td>
