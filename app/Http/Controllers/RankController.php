@@ -44,13 +44,13 @@ class RankController extends Controller
 
         $rank_list = zbrankRankModel::where('rank_start_timestamp', '=', $date);
         if ($plat) {
-            $rank_list = $rank_list->where('platform', '=', $plat);
+            $rank_list = $rank_list->where('zbrank_rank.platform', '=', $plat);
         } else {//优化sql  如果没传 关键字  就限定查找范围
-            $rank_list = $rank_list->where("rank_all", ">", 1)->where("rank_all", "<=", $per_page);
+            $rank_list = $rank_list->where("zbrank_rank.rank_all", ">", 1)->where("zbrank_rank.rank_all", "<=", $per_page);
         }
         $rank_list = $rank_list->select('liver_addr.liverAddr', 'zbrank_rank.*');
         $rank_list = $rank_list->leftjoin('liver_addr', 'liver_addr.userId', '=', 'zbrank_rank.userId');
-        $rank_list = $rank_list->orderBy('rank_all', "asc")
+        $rank_list = $rank_list->orderBy('zbrank_rank.rank_all', "asc")
             ->skip($per_page * $page_no)
             ->limit($per_page)
             ->get()
