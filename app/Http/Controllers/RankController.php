@@ -91,9 +91,10 @@ class RankController extends Controller
             //周一日期 6月1日
             $date_mon = date("m月d日", strtotime("-" . ($now_week - 1 + 7 * $i) . 'days'));
             //周日日期 6月6日
-            $date_sta = date("m月d日", strtotime("-" . ($now_week - 1 + 7 * $i + 6) . 'days'));
+            $date_sta = date("m月d日", strtotime("-" . ($now_week - 1 + 7 * $i - 6) . 'days'));
             $return_data['id'] = strtotime($mon . "00:00:00");
             $return_data['date'] = $date_mon . "-" . $date_sta;
+
             if ($return_data['id'] == $max_date) {
                 $return_data['active'] = true;
             } else {
@@ -126,6 +127,19 @@ class RankController extends Controller
         }
         $liver_addr = $liver_addr->first();
         return resp_suc($liver_addr);
-
+    }
+    /**
+     * 获取主播详情
+     */
+    public function getLiverDetail(){
+        $liver_id = request("liver_id");
+        $plat = request('plat');
+        $info = zbrankRankModel::where('userId','=',$liver_id)
+            ->where('platform','=',$plat)
+            ->limit(7)
+            ->orderBy('rank_start_timestamp','desc')
+            ->get();
+//        dd($info->toArray());die;
+        return resp_suc($info);
     }
 }
