@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 Route::post('/gitHubHook','GithubHookController@index');
 Route::get('/test','TestController@index');
+Route::get('/test2','TestController@test2');
+Route::get('/test3','TestController@test3');
+Route::get('/test4','TestController@test4');
 Route::get('/rank','RankController@index');
 Route::get('/getNear7Date','RankController@getNear7Date');
 Route::get('/getRankList','RankController@getRankList');
