@@ -66,10 +66,8 @@
     </head>
     <body>
     <a href="tel:10086">10086</a>
-    <a href="wtai://wp/mc;10086">10086</a>
     <a href="wtai://wp//mc;13764567708">拨打10086 </a>
     <a href="wtai://wp/ap;13764567708;">将10086存储至电话簿 </a>
-    <meta name="format-detection"  content="telephone=10086">
 
     <meta  http-equiv="x-rim-auto-match" content="none">
     </body>
