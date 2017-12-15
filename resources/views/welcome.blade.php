@@ -68,6 +68,7 @@
     <a href="tel:10086">10086</a>
     <a href="wtai://wp//mc;13764567708">拨打10086 </a>
     <a href="wtai://wp/ap;13764567708;">将10086存储至电话簿 </a>
+    <a id="linkTel" style="color: red;" href="tel:18586912657">18586912657</a>
 
     <meta  http-equiv="x-rim-auto-match" content="none">
     </body>
