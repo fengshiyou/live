@@ -102,9 +102,9 @@ class RankController extends Controller
             ->where('plat','=',$plat)
             ->limit(7)
             ->orderBy('created_at','desc')
-            ->get()->toArray();
-//        dd($info->toArray());die;
-        array_multisort(array_column($info,'rank_start_timestamp'),SORT_DESC,$info);
+            ->get();
+        dd($info->toArray());die;
+//        array_multisort(array_column($info,'rank_start_timestamp'),SORT_DESC,$info);
         return resp_suc($info);
     }
 }
