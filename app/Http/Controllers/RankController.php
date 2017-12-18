@@ -138,8 +138,8 @@ class RankController extends Controller
             ->where('platform','=',$plat)
             ->limit(7)
             ->orderBy('rank_start_timestamp','desc')
-            ->get();
-//        dd($info->toArray());die;
+            ->get()->toArray();
+        dd($info);die;
         array_multisort(array_column($info,'rank_start_timestamp'),SORT_ASC,$info);
         return resp_suc($info);
     }
