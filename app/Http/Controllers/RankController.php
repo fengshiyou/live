@@ -140,7 +140,7 @@ class RankController extends Controller
             ->orderBy('rank_start_timestamp','desc')
             ->get();
 //        dd($info->toArray());die;
-        array_multisort(array_column($info,'rank_start_timestamp'),SORT_DESC,$info);
+        array_multisort(array_column($info,'rank_start_timestamp'),SORT_ASC,$info);
         return resp_suc($info);
     }
 }
