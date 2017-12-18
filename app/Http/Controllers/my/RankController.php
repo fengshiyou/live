@@ -104,7 +104,7 @@ class RankController extends Controller
             ->orderBy('created_at','desc')
             ->get()->toArray();
 //        dd($info->toArray());die;
-        array_multisort(array_column($info,'created_at'),SORT_DESC,$info);
+        array_multisort(array_column($info,'created_at'),SORT_ASC,$info);
         dd($info);die;
         return resp_suc($info);
     }
