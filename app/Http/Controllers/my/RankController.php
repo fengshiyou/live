@@ -23,6 +23,8 @@ class RankController extends Controller
         $liver = request('liver');
         //要查询的平台
         $plat = request('plat');
+        //查询类型 all 总收入 day 当日收入
+        $type = request('type');
         DB::connection()->enableQueryLog();
         if (!$date) {
             //取数据库中最大的日期
@@ -35,9 +37,13 @@ class RankController extends Controller
         if ($plat) {
             $rank_list = $rank_list->where('plat', '=', $plat);
         }
+        if($type == "day"){
+            $rank_list = $rank_list->orderBy('money_grow_rank', "asc");
+        }else{
+            $rank_list = $rank_list->orderBy('plat_currency', "desc");
+        }
 
-        $rank_list = $rank_list->orderBy('plat_currency', "desc")
-            ->skip($per_page * $page_no)
+        $rank_list = $rank_list->skip($per_page * $page_no)
             ->limit($per_page)
             ->get()
             ->toArray();
@@ -58,6 +64,7 @@ class RankController extends Controller
 //        var_dump($log);
         return resp_suc($return_data);
     }
+
     /**
      * 获取平台列表
      */
@@ -92,19 +99,21 @@ class RankController extends Controller
         }
         return resp_suc($return);
     }
+
     /**
      * 获取主播详情
      */
-    public function getLiverDetail(){
+    public function getLiverDetail()
+    {
         $liver_id = request("liver_id");
         $plat = request('plat');
-        $info = MyCollectDayRankModel::where('liver_id','=',$liver_id)
-            ->where('plat','=',$plat)
+        $info = MyCollectDayRankModel::where('liver_id', '=', $liver_id)
+            ->where('plat', '=', $plat)
             ->limit(7)
-            ->orderBy('created_at','desc')
+            ->orderBy('created_at', 'desc')
             ->get()->toArray();
 //        dd($info->toArray());die;
-        array_multisort(array_column($info,'created_at'),SORT_ASC,$info);
+        array_multisort(array_column($info, 'created_at'), SORT_ASC, $info);
 //        dd($info);die;
         return resp_suc($info);
     }
