@@ -10,7 +10,7 @@ use App\model\zbrankRankModel;
 use Illuminate\Http\Request;
 use DB;
 
-class RankController extends Controller
+class ImgAdsController extends Controller
 {
     public function index()
     {
