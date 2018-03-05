@@ -126,8 +126,49 @@ class TestController extends Controller
         dd($test);
     }
     public function test4(){
-        test::test();
-        die;
+        $test = "2016-10-31 17:00:39";
+        $day = date("Y年m月d日 ",strtotime($test));
+        $week_tmp = date("w",strtotime($test));
+        $week = array('（星期日）','（星期一）','（星期二）','（星期三）','（星期四）','（星期五）','（星期六）');
+
+        $tmp_h = date("H:i",strtotime($test));
+        time();
+        now();
+        dd($day.$week[$week_tmp].$tmp_h);
+        //转换为时间戳
+        $meetingtime = "2017-12-13 17:22";
+//        dd(strtotime($meetingtime));die;
+//        $timestamp = strtotime(date('m-d-Y H:i:s',$meetingtime)) === $meetingtime ? $meetingtime : strtotime($meetingtime);
+        $timestamp = strtotime($meetingtime);
+        $temp = $timestamp - time();
+        $res = array('flg'=>'剩余','data'=> $temp);
+
+        if($temp < 0 ) {
+            $res['data'] = -1 * $temp;
+            $res['flg'] = '超过';
+        }
+
+        //把单位换成秒
+//        $res['data'] = ($res['data']/1000)*60;
+//        dd($res);
+        $seconds = $res['data'];
+
+        if( $seconds>3600 ){
+            $days_num = '';
+            if( $seconds>24*3600 ){
+                $days		= (int)($seconds/86400);
+                $days_num	= $days."天";
+                $seconds	= $seconds%86400;//取余
+            }
+            $hours = intval($seconds/3600);
+            $minutes = $seconds%3600;//取余下秒数
+            $time = $days_num.$hours."小时".gmstrftime('%M分钟', $minutes);
+        }else{
+            $hours = intval($seconds/3600);
+            $time = $hours>0 ? gmstrftime('%H小时%M分钟', $seconds) : gmstrftime('%M分钟', $seconds);
+        }
+        $res['data'] = $time;
+        dd($res);
         /*
         $form_check_arr = array(
             ['orgid']=>'部门错误',

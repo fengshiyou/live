@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\model\ImgAdsModel;
 use App\model\liverAddrModel;
 use App\model\ZbrankCollectStatusModel;
 use App\model\zbrankPlatModel;
@@ -19,9 +20,7 @@ class ImgAdsController extends Controller
 
     public function getImgAds()
     {
-        $data = array(
-            'a'=>'a'
-        );
+        $data = ImgAdsModel::get()->toArray();
         return resp_suc($data);
     }
 
