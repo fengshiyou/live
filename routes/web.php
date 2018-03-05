@@ -31,3 +31,7 @@ Route::get('/my/getPlatList','my\RankController@getPlatList');
 Route::get('/my/getRankList','my\RankController@getRankList');
 Route::get('/my/getNearDay','my\RankController@getNearDay');
 Route::get('/my/getLiverDetail','my\RankController@getLiverDetail');
+
+
+
+Route::get('/imgAds','ImgAdsController@getImgAds');
