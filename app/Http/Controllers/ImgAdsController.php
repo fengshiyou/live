@@ -22,7 +22,7 @@ class ImgAdsController extends Controller
         $data = array(
             'a'=>'a'
         );
-        resp_suc($data);
+        return resp_suc($data);
     }
 
 }
